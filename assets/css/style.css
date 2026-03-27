@@ -365,6 +365,10 @@ p {
   color: var(--brand);
 }
 
+.nav-mobile-extra {
+  display: none;
+}
+
 .header-actions {
   display: inline-flex;
   align-items: center;
@@ -1314,15 +1318,22 @@ p {
 
   .nav {
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
     z-index: 120;
-    display: block;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
-    background: rgba(18, 30, 26, 0.28);
-    backdrop-filter: blur(10px);
+    padding: calc(var(--header-height) + 1rem) 1.25rem 1.5rem;
+    background:
+      radial-gradient(circle at top, rgba(216, 167, 79, 0.12), transparent 28%),
+      linear-gradient(180deg, rgba(16, 38, 31, 0.98), rgba(10, 25, 20, 0.98));
+    backdrop-filter: blur(16px);
     visibility: hidden;
     pointer-events: none;
     opacity: 0;
@@ -1337,20 +1348,82 @@ p {
 
   .nav ul {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-    width: min(100%, 30rem);
-    margin: 0 auto;
-    padding: 1rem;
-    border-radius: 1.75rem;
-    background: rgba(255, 248, 240, 0.96);
-    box-shadow: var(--shadow-lg);
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    backdrop-filter: none;
+    flex: 1;
   }
 
   .nav a {
     justify-content: center;
-    min-height: 3.1rem;
-    font-size: 1rem;
+    min-height: auto;
+    padding: 0.25rem 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.45rem, 4vw, 2.1rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #fffaf4;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav a::after {
+    content: none;
+  }
+
+  .nav.open::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%);
+  }
+
+  .nav.open > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav ul,
+  .nav-mobile-extra {
+    width: 100%;
+  }
+
+  .nav-mobile-extra {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding-top: 1.25rem;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .nav-mobile-extra .btn,
+  .nav-mobile-extra .lang-switch {
+    width: 100%;
+  }
+
+  .nav-mobile-extra .lang-switch {
+    min-height: 3.2rem;
+    justify-content: center;
+    color: #fffaf4;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .nav a:hover,
+  .nav a.is-active {
+    background: transparent;
+    color: var(--accent-soft);
   }
 
   .brand-name {
@@ -1606,6 +1679,10 @@ p {
 
   .hero-carousel {
     min-height: 18rem;
+  }
+
+  .nav a {
+    font-size: 1.35rem;
   }
 
   .hero-slide-overlay h3 {
