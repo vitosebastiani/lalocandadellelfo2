@@ -1,317 +1,334 @@
-const header = document.querySelector('.site-header');
-const navToggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('#nav');
-const navLinks = Array.from(document.querySelectorAll('.nav a[href^="#"]'));
-const year = document.querySelector('#year');
+const toggle = document.querySelector(".nav-toggle");
+const nav = document.querySelector("#nav");
 
+if (toggle && nav) {
+  const openLabel = toggle.dataset.labelOpen || "Open menu";
+  const closeLabel = toggle.dataset.labelClose || "Close menu";
+
+  const syncMenuState = (open) => {
+    nav.classList.toggle("open", open);
+    toggle.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
+    document.body.classList.toggle("menu-open", open);
+  };
+
+  toggle.addEventListener("click", () => {
+    syncMenuState(!nav.classList.contains("open"));
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 860) {
+      syncMenuState(false);
+    }
+  });
+}
+
+for (const link of document.querySelectorAll('a[href^="#"]')) {
+  link.addEventListener("click", (event) => {
+    const id = link.getAttribute("href").slice(1);
+    if (!id) return;
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (toggle) {
+      toggle.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", toggle.dataset.labelOpen || "Open menu");
+    }
+    if (nav) nav.classList.remove("open");
+    document.body.classList.remove("menu-open");
+  });
+}
+
+(() => {
+  const navElement = document.querySelector(".nav");
+  if (!navElement) return;
+
+  const pageLinks = Array.from(navElement.querySelectorAll('a[href^="#"]'));
+  if (!pageLinks.length) return;
+
+  const linkMap = new Map();
+  const sections = [];
+
+  pageLinks.forEach((link) => {
+    const id = link.getAttribute("href").slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    linkMap.set(id, link);
+    sections.push(target);
+  });
+
+  if (!sections.length) return;
+
+  const setActive = (id) => {
+    pageLinks.forEach((link) => {
+      link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+    });
+  };
+
+  const updateActiveSection = () => {
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    if (documentHeight - scrollBottom <= 24) {
+      setActive(sections[sections.length - 1].id);
+      return;
+    }
+
+    const marker = window.innerHeight * 0.38;
+    let current = sections[0].id;
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= marker) {
+        current = section.id;
+      }
+    });
+
+    setActive(current);
+  };
+
+  updateActiveSection();
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection);
+  window.addEventListener("hashchange", updateActiveSection);
+})();
+
+const year = document.getElementById("year");
 if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-const setMenuState = (open) => {
-  if (!navToggle || !nav) return;
-  nav.classList.toggle('open', open);
-  navToggle.classList.toggle('open', open);
-  navToggle.setAttribute('aria-expanded', String(open));
-  navToggle.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
-  document.body.classList.toggle('menu-open', open);
-};
-
-if (navToggle && nav) {
-  navToggle.addEventListener('click', () => {
-    setMenuState(!nav.classList.contains('open'));
-  });
-}
-
-document.addEventListener('click', (event) => {
-  if (!nav || !navToggle) return;
-  if (!nav.classList.contains('open')) return;
-  if (nav.contains(event.target) || navToggle.contains(event.target)) return;
-  setMenuState(false);
-});
-
-for (const link of navLinks) {
-  link.addEventListener('click', () => setMenuState(false));
-}
-
-const sections = Array.from(document.querySelectorAll('main section[id]'));
-const sectionObserver = sections.length
-  ? new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const link = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
-        if (link) {
-          link.classList.toggle('is-active', entry.isIntersecting);
-        }
-      });
-    }, { rootMargin: '-40% 0px -45% 0px', threshold: 0.05 })
-  : null;
-
-sections.forEach((section) => sectionObserver?.observe(section));
-
-const onScroll = () => {
-  if (header) {
-    header.classList.toggle('is-scrolled', window.scrollY > 12);
-  }
-
-  for (const node of document.querySelectorAll('[data-parallax]')) {
-    const speed = Number(node.dataset.parallax || 0.12);
-    const offset = window.scrollY * speed;
-    node.style.transform = `translate3d(0, ${offset}px, 0)`;
-  }
-};
-
-window.addEventListener('scroll', () => window.requestAnimationFrame(onScroll), { passive: true });
-onScroll();
-
-const revealItems = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale');
-const revealObserver = revealItems.length
-  ? new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.18 })
-  : null;
-
-revealItems.forEach((item) => revealObserver?.observe(item));
-
-const counterObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    const element = entry.target;
-    const target = Number(element.dataset.counter || 0);
-    const suffix = element.dataset.suffix || '';
-    const duration = 1200;
-    const start = performance.now();
-
-    const tick = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      element.textContent = `${Math.round(target * eased)}${suffix}`;
-      if (progress < 1) {
-        window.requestAnimationFrame(tick);
-      }
-    };
-
-    window.requestAnimationFrame(tick);
-    observer.unobserve(element);
-  });
-}, { threshold: 0.55 });
-
-document.querySelectorAll('[data-counter]').forEach((counter) => counterObserver.observe(counter));
-
-const heroCarousel = document.querySelector('[data-hero-carousel]');
-
-if (heroCarousel) {
-  const slides = Array.from(heroCarousel.querySelectorAll('[data-hero-slide]'));
-  const prevButton = heroCarousel.querySelector('[data-hero-prev]');
-  const nextButton = heroCarousel.querySelector('[data-hero-next]');
-  const dotsWrap = heroCarousel.querySelector('[data-hero-dots]');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let heroIndex = 0;
-  let heroTimer = null;
-  let touchStartX = 0;
-  let touchCurrentX = 0;
-
-  slides.forEach((_, index) => {
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = 'hero-carousel-dot';
-    dot.setAttribute('aria-label', `Vai alla slide ${index + 1}`);
-    dot.addEventListener('click', () => {
-      renderHero(index);
-      restartHero();
-    });
-    dotsWrap?.appendChild(dot);
-  });
-
-  const renderHero = (nextIndex) => {
-    heroIndex = (nextIndex + slides.length) % slides.length;
-    slides.forEach((slide, index) => {
-      slide.classList.toggle('is-active', index === heroIndex);
-    });
-    dotsWrap?.querySelectorAll('.hero-carousel-dot').forEach((dot, index) => {
-      dot.setAttribute('aria-current', index === heroIndex ? 'true' : 'false');
-    });
-  };
-
-  const startHero = () => {
-    if (prefersReducedMotion) return;
-    heroTimer = window.setInterval(() => renderHero(heroIndex + 1), 5000);
-  };
-
-  const stopHero = () => {
-    if (heroTimer) {
-      window.clearInterval(heroTimer);
-      heroTimer = null;
-    }
-  };
-
-  const restartHero = () => {
-    stopHero();
-    startHero();
-  };
-
-  prevButton?.addEventListener('click', () => {
-    renderHero(heroIndex - 1);
-    restartHero();
-  });
-
-  nextButton?.addEventListener('click', () => {
-    renderHero(heroIndex + 1);
-    restartHero();
-  });
-
-  heroCarousel.addEventListener('mouseenter', stopHero);
-  heroCarousel.addEventListener('mouseleave', startHero);
-  heroCarousel.addEventListener('focusin', stopHero);
-  heroCarousel.addEventListener('focusout', startHero);
-
-  heroCarousel.addEventListener('touchstart', (event) => {
-    const touch = event.touches[0];
-    if (!touch) return;
-    touchStartX = touch.clientX;
-    touchCurrentX = touch.clientX;
-    stopHero();
-  }, { passive: true });
-
-  heroCarousel.addEventListener('touchmove', (event) => {
-    const touch = event.touches[0];
-    if (!touch) return;
-    touchCurrentX = touch.clientX;
-  }, { passive: true });
-
-  heroCarousel.addEventListener('touchend', () => {
-    const deltaX = touchCurrentX - touchStartX;
-    if (Math.abs(deltaX) > 45) {
-      renderHero(deltaX < 0 ? heroIndex + 1 : heroIndex - 1);
-    }
-    restartHero();
-  }, { passive: true });
-
-  heroCarousel.addEventListener('pointerdown', stopHero);
-  heroCarousel.addEventListener('pointerup', restartHero);
-  heroCarousel.addEventListener('pointercancel', restartHero);
-
-  renderHero(0);
-  startHero();
-}
-
-const testimonialItems = [
-  {
-    name: 'Marta R.',
-    role: 'Ospite - novembre 2025',
-    quote: "Gli spaghetti all'assassina arrivano con carattere, il servizio e' attento e l'atmosfera resta calda fino all'ultimo tavolo.",
-    image: 'assets/img/people/image.png'
-  },
-  {
-    name: 'Dario A.',
-    role: 'Cliente abituale - ottobre 2025',
-    quote: 'Cucina barese autentica senza fronzoli, ma presentata con grande cura. Il mix tra tradizione e stile del locale funziona davvero.',
-    image: 'assets/img/people/DA.jpeg'
-  },
-  {
-    name: 'Giulia P.',
-    role: 'Traveller review - settembre 2025',
-    quote: "Materie prime ottime, porzioni ben calibrate e un ambiente che ti fa sentire in un posto speciale gia' dall'ingresso.",
-    image: 'assets/img/locanda.jpeg'
-  }
-];
-
-const testimonialRoot = document.querySelector('[data-testimonials]');
-
-if (testimonialRoot) {
-  const imageStage = testimonialRoot.querySelector('[data-testimonial-images]');
-  const quoteNode = testimonialRoot.querySelector('[data-testimonial-quote]');
-  const nameNode = testimonialRoot.querySelector('[data-testimonial-name]');
-  const roleNode = testimonialRoot.querySelector('[data-testimonial-role]');
-  const dotsNode = testimonialRoot.querySelector('[data-testimonial-dots]');
-  const prevButton = testimonialRoot.querySelector('[data-testimonial-prev]');
-  const nextButton = testimonialRoot.querySelector('[data-testimonial-next]');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const slider = document.getElementById("foodSlider");
+if (slider) {
+  const slides = Array.from(slider.querySelectorAll(".slide"));
   let index = 0;
-  let autoplay = null;
-  const avatars = [];
 
-  testimonialItems.forEach((item, itemIndex) => {
-    const image = document.createElement('img');
-    image.src = item.image;
-    image.alt = item.name;
-    image.className = 'testimonial-avatar';
-    image.loading = itemIndex === 0 ? 'eager' : 'lazy';
-    imageStage?.appendChild(image);
-    avatars.push(image);
-
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = 'testimonial-dot';
-    dot.setAttribute('aria-label', `Vai alla recensione ${itemIndex + 1}`);
-    dot.addEventListener('click', () => {
-      renderTestimonial(itemIndex);
-      restartAutoplay();
+  const show = (nextIndex) => {
+    index = nextIndex;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("active", slideIndex === index);
     });
-    dotsNode?.appendChild(dot);
+  };
+
+  if (slides.length > 1) {
+    window.setInterval(() => {
+      show((index + 1) % slides.length);
+    }, 4200);
+  } else {
+    show(0);
+  }
+}
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const observedRevealTargets = new WeakSet();
+let revealObserver = null;
+
+const revealNow = (root = document) => {
+  root.querySelectorAll(".reveal, .reveal-img").forEach((element) => {
+    element.classList.add("visible");
+  });
+};
+
+const observeReveals = (root = document) => {
+  const targets = root.querySelectorAll(".reveal, .reveal-img");
+
+  if (!targets.length) return;
+
+  if (prefersReducedMotion) {
+    revealNow(root);
+    return;
+  }
+
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.18 }
+    );
+  }
+
+  targets.forEach((element) => {
+    if (observedRevealTargets.has(element)) return;
+    observedRevealTargets.add(element);
+    revealObserver.observe(element);
+  });
+};
+
+observeReveals();
+window.__codexObserveReveals = observeReveals;
+
+(() => {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const updateHeader = () => {
+    header.classList.toggle("is-shrink", window.scrollY > 12);
+  };
+
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+})();
+
+(() => {
+  if (prefersReducedMotion) return;
+
+  const parallaxItems = Array.from(document.querySelectorAll(".parallax-soft"));
+  if (!parallaxItems.length) return;
+
+  const updateParallax = () => {
+    const viewportHeight = window.innerHeight || 1;
+
+    parallaxItems.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      const progress = (rect.top + rect.height * 0.5 - viewportHeight * 0.5) / viewportHeight;
+      const offset = Math.max(-14, Math.min(14, progress * -14));
+      item.style.transform = `translate3d(0, ${offset}px, 0)`;
+    });
+  };
+
+  updateParallax();
+  window.addEventListener("scroll", updateParallax, { passive: true });
+  window.addEventListener("resize", updateParallax);
+})();
+
+(() => {
+  const container = document.getElementById("ctImages");
+  const prev = document.getElementById("ctPrev");
+  const next = document.getElementById("ctNext");
+  const name = document.getElementById("ctName");
+  const meta = document.getElementById("ctDesig");
+  const quote = document.getElementById("ctQuote");
+  const wrap = document.getElementById("ctQuoteWrap");
+
+  if (!container || !prev || !next || !name || !meta || !quote || !wrap) return;
+
+  const isItalian = document.documentElement.lang === "it";
+  const testimonials = isItalian
+    ? [
+        {
+          name: "Marta R.",
+          designation: "5 stelle - ospite recente",
+          quote: "Atmosfera calda, impiattamento curato e una sensazione di autenticita che resta dall'inizio alla fine.",
+          src: "assets/img/people/image.png"
+        },
+        {
+          name: "Dario A.",
+          designation: "4 stelle - visita serale",
+          quote: "Cucina tipica barese fatta bene, servizio cordiale e un'identita visiva finalmente all'altezza del locale.",
+          src: "assets/img/people/DA.jpeg"
+        },
+        {
+          name: "Vito U.",
+          designation: "5 stelle - cliente soddisfatto",
+          quote: "Piatti chiari, atmosfera avvolgente e un sito che adesso trasmette davvero il carattere della locanda.",
+          src: "assets/img/people/ubaldini.gif"
+        }
+      ]
+    : [
+        {
+          name: "Marta R.",
+          designation: "5 stars - recent guest",
+          quote: "Warm atmosphere, thoughtful plating, and a strong sense of authenticity from the first course to the last.",
+          src: "assets/img/people/image.png"
+        },
+        {
+          name: "Dario A.",
+          designation: "4 stars - evening visit",
+          quote: "Well-made Bari classics, friendly service, and a visual identity that now matches the quality of the restaurant.",
+          src: "assets/img/people/DA.jpeg"
+        },
+        {
+          name: "Vito U.",
+          designation: "5 stars - happy guest",
+          quote: "Clear menu, inviting mood, and a website that finally feels aligned with the place itself.",
+          src: "assets/img/people/ubaldini.gif"
+        }
+      ];
+
+  let active = 0;
+  let timer = null;
+
+  const images = testimonials.map((testimonial) => {
+    const image = document.createElement("img");
+    image.className = "ct-img";
+    image.src = testimonial.src;
+    image.alt = testimonial.name;
+    container.appendChild(image);
+    return image;
   });
 
-  const renderAvatars = () => {
-    avatars.forEach((avatar, avatarIndex) => {
-      const leftIndex = (index - 1 + avatars.length) % avatars.length;
-      const rightIndex = (index + 1) % avatars.length;
+  const gap = () => {
+    const width = container.offsetWidth;
+    return Math.min(84, Math.max(24, width * 0.2));
+  };
 
-      if (avatarIndex === index) {
-        avatar.style.opacity = '1';
-        avatar.style.transform = 'translate3d(0, 0, 0) scale(1) rotateY(0deg)';
-        avatar.style.zIndex = '3';
-      } else if (avatarIndex === leftIndex) {
-        avatar.style.opacity = '0.55';
-        avatar.style.transform = 'translate3d(-12%, 8%, -40px) scale(0.82) rotateY(18deg)';
-        avatar.style.zIndex = '2';
-      } else if (avatarIndex === rightIndex) {
-        avatar.style.opacity = '0.55';
-        avatar.style.transform = 'translate3d(12%, -8%, -40px) scale(0.82) rotateY(-18deg)';
-        avatar.style.zIndex = '2';
+  const renderImages = () => {
+    const distance = gap();
+    const rise = distance * 0.78;
+    const total = testimonials.length;
+
+    images.forEach((image, index) => {
+      const isActive = index === active;
+      const isLeft = (active - 1 + total) % total === index;
+      const isRight = (active + 1) % total === index;
+
+      if (isActive) {
+        image.style.cssText = "z-index:3;opacity:1;transform:translateX(0) translateY(0) scale(1) rotateY(0deg);";
+      } else if (isLeft) {
+        image.style.cssText = `z-index:2;opacity:0.96;transform:translateX(-${distance}px) translateY(-${rise}px) scale(0.84) rotateY(16deg);`;
+      } else if (isRight) {
+        image.style.cssText = `z-index:2;opacity:0.96;transform:translateX(${distance}px) translateY(-${rise}px) scale(0.84) rotateY(-16deg);`;
       } else {
-        avatar.style.opacity = '0';
-        avatar.style.transform = 'translate3d(0, 0, -80px) scale(0.75)';
-        avatar.style.zIndex = '1';
+        image.style.cssText = "z-index:1;opacity:0;transform:scale(0.7);";
       }
     });
   };
 
-  const renderTestimonial = (nextIndex) => {
-    index = (nextIndex + testimonialItems.length) % testimonialItems.length;
-    const current = testimonialItems[index];
+  const renderText = () => {
+    const current = testimonials[active];
+    wrap.style.animation = "none";
+    void wrap.offsetWidth;
+    wrap.style.animation = "ctFade .35s ease";
+    name.textContent = current.name;
+    meta.textContent = current.designation;
+    quote.textContent = current.quote;
+  };
 
-    if (quoteNode) {
-      quoteNode.textContent = current.quote;
-    }
+  const render = () => {
+    renderImages();
+    renderText();
+  };
 
-    if (nameNode) {
-      nameNode.textContent = current.name;
-    }
-
-    if (roleNode) {
-      roleNode.textContent = current.role;
-    }
-
-    dotsNode?.querySelectorAll('.testimonial-dot').forEach((dot, dotIndex) => {
-      dot.setAttribute('aria-current', dotIndex === index ? 'true' : 'false');
-    });
-
-    renderAvatars();
+  const go = (direction) => {
+    active = (active + direction + testimonials.length) % testimonials.length;
+    render();
+    restartAutoplay();
   };
 
   const startAutoplay = () => {
     if (prefersReducedMotion) return;
-    autoplay = window.setInterval(() => renderTestimonial(index + 1), 5500);
+    timer = window.setInterval(() => {
+      active = (active + 1) % testimonials.length;
+      render();
+    }, 5500);
   };
 
   const stopAutoplay = () => {
-    if (autoplay) {
-      window.clearInterval(autoplay);
-      autoplay = null;
-    }
+    if (!timer) return;
+    window.clearInterval(timer);
+    timer = null;
   };
 
   const restartAutoplay = () => {
@@ -319,106 +336,18 @@ if (testimonialRoot) {
     startAutoplay();
   };
 
-  prevButton?.addEventListener('click', () => {
-    renderTestimonial(index - 1);
-    restartAutoplay();
+  prev.addEventListener("click", () => go(-1));
+  next.addEventListener("click", () => go(1));
+  window.addEventListener("resize", renderImages);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") go(-1);
+    if (event.key === "ArrowRight") go(1);
   });
 
-  nextButton?.addEventListener('click', () => {
-    renderTestimonial(index + 1);
-    restartAutoplay();
-  });
+  container.addEventListener("mouseenter", stopAutoplay);
+  container.addEventListener("mouseleave", startAutoplay);
 
-  testimonialRoot.addEventListener('mouseenter', stopAutoplay);
-  testimonialRoot.addEventListener('mouseleave', startAutoplay);
-  testimonialRoot.addEventListener('focusin', stopAutoplay);
-  testimonialRoot.addEventListener('focusout', startAutoplay);
-
-  renderTestimonial(0);
+  render();
   startAutoplay();
-}
-
-const menuGrid = document.querySelector('#menuGrid');
-
-if (menuGrid) {
-  const menuData = [
-    {
-      title: 'Antipasti',
-      tag: 'Inizio tavola',
-      description: 'Piccoli assaggi pugliesi da condividere, tra fritti leggeri, mare e orto.',
-      items: [
-        { name: 'Saute di cozze', description: 'Cozze fresche, prezzemolo, aglio e pane tostato', price: 'EUR 12' },
-        { name: 'Antipasto tradizionale', description: 'Selezione della casa con specialita del giorno', price: 'EUR 16' },
-        { name: 'Gamberetti fritti', description: 'Croccanti, asciutti e serviti con maionese agrumata', price: 'EUR 14' }
-      ]
-    },
-    {
-      title: 'Primi iconici',
-      tag: 'Best seller',
-      description: 'Pasta, fondo saporito e carattere barese. Qui vive il cuore del menu.',
-      items: [
-        { name: "Spaghetti all'assassina", description: 'Pomodoro, crosta croccante e piccantezza calibrata', price: 'EUR 13' },
-        { name: "Mb'a Vnginz", description: 'Gamberi, gorgonzola D.O.P., rucola e pomodoro fresco', price: 'EUR 16' },
-        { name: 'Spaghetti allo scoglio', description: 'Frutti di mare e fondo intenso al profumo di mare', price: 'EUR 18' }
-      ]
-    },
-    {
-      title: 'Tradizione di terra',
-      tag: 'Ricette di casa',
-      description: 'Piatti rassicuranti, ingredienti stagionali e sapori puliti.',
-      items: [
-        { name: 'Orecchiette alle cime di rapa', description: 'Alici, pane croccante e olio extravergine', price: 'EUR 12' },
-        { name: 'Pasta e fagioli', description: 'Cremosa, avvolgente, rifinita con olio pugliese', price: 'EUR 11' },
-        { name: 'Rape stufate', description: 'Contorno tipico dal gusto deciso e autentico', price: 'EUR 7' }
-      ]
-    },
-    {
-      title: 'Dal mare',
-      tag: 'Secondi',
-      description: 'Cotture essenziali per lasciare spazio alla qualita del prodotto.',
-      items: [
-        { name: 'Scampi alla griglia', description: 'Cottura rapida, olio EVO e limone', price: 'EUR 22' },
-        { name: 'Merluzzo dorato', description: 'Servito con verdure di stagione e salsa leggera', price: 'EUR 18' },
-        { name: 'Pesce del giorno', description: 'Disponibilita secondo mercato e pescato', price: 'EUR 24' }
-      ]
-    }
-  ];
-
-  menuGrid.innerHTML = '';
-
-  menuData.forEach((section, sectionIndex) => {
-    const article = document.createElement('article');
-    article.className = `menu-card reveal-up delay-${Math.min(sectionIndex, 4)}`;
-
-    const tag = document.createElement('span');
-    tag.className = 'menu-tag';
-    tag.textContent = section.tag;
-
-    const heading = document.createElement('h3');
-    heading.textContent = section.title;
-
-    const description = document.createElement('p');
-    description.textContent = section.description;
-
-    const list = document.createElement('dl');
-    list.className = 'menu-list';
-
-    section.items.forEach((item) => {
-      const row = document.createElement('div');
-      row.className = 'menu-row';
-
-      const dt = document.createElement('dt');
-      dt.innerHTML = `<strong>${item.name}</strong><span>${item.description}</span>`;
-
-      const dd = document.createElement('dd');
-      dd.textContent = item.price;
-
-      row.append(dt, dd);
-      list.appendChild(row);
-    });
-
-    article.append(tag, heading, description, list);
-    menuGrid.appendChild(article);
-    revealObserver?.observe(article);
-  });
-}
+})();

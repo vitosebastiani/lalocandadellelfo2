@@ -4,42 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>La Locanda dell'Elfo | Trattoria tipica barese a Bari Vecchia</title>
-  <meta name="description" content="La Locanda dell'Elfo &egrave; una trattoria tipica barese nel cuore di Bari Vecchia. Cucina pugliese autentica, atmosfera calda e design contemporaneo.">
+  <meta name="description" content="La Locanda dell'Elfo e una trattoria tipica barese nel cuore di Bari Vecchia. Cucina pugliese autentica, atmosfera calda e menu di tradizione.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://lalocandadellelfo.com/">
   <meta property="og:title" content="La Locanda dell'Elfo | Trattoria tipica barese">
-  <meta property="og:description" content="Sapori pugliesi autentici, ingredienti freschi e un'esperienza curata in ogni dettaglio.">
+  <meta property="og:description" content="Sapori autentici pugliesi nel cuore di Bari Vecchia.">
   <meta property="og:type" content="restaurant">
   <meta property="og:url" content="https://lalocandadellelfo.com/">
   <meta property="og:image" content="https://lalocandadellelfo.com/assets/img/locanda.jpeg">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Fraunces:opsz,wght@9..144,300..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "La Locanda dell'Elfo",
-      "image": "https://lalocandadellelfo.com/assets/img/locanda.jpeg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Strada dei Gesuiti, 28/30",
-        "addressLocality": "Bari",
-        "postalCode": "70122",
-        "addressCountry": "IT"
-      },
-      "telephone": "+39 329 325 7911",
-      "servesCuisine": "Cucina pugliese, piatti tipici baresi",
-      "priceRange": "EUR EUR",
-      "url": "https://lalocandadellelfo.com/",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.4",
-        "reviewCount": "2000"
-      }
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "La Locanda dell'Elfo",
+    "image": "https://lalocandadellelfo.com/assets/img/locanda.jpeg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada dei Gesuiti, 28/30",
+      "addressLocality": "Bari",
+      "postalCode": "70122",
+      "addressCountry": "IT"
+    },
+    "telephone": "+39 329 325 7911",
+    "servesCuisine": "Cucina pugliese",
+    "priceRange": "EUR 25-45",
+    "url": "https://lalocandadellelfo.com/"
+  }
   </script>
 </head>
 <body>
@@ -49,202 +44,179 @@
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="La Locanda dell'Elfo home">
         <img class="brand-logo" src="assets/img/logo.jpg" alt="Logo La Locanda dell'Elfo" width="48" height="48">
-        <span class="brand-mark">
-          <span class="brand-name">La Locanda dell'Elfo</span>
-          <span class="brand-subtitle">Bari Vecchia</span>
-        </span>
+        <span class="brand-name">La Locanda dell'Elfo</span>
       </a>
 
-      <nav id="nav" class="nav" role="navigation" aria-label="Navigazione principale">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#esperienza">Esperienza</a></li>
-          <li><a href="#galleria">Gallery</a></li>
-          <li><a href="#contatti">Contatti</a></li>
-          <li><a href="menu.html">Menu</a></li>
-        </ul>
-        <div class="nav-mobile-extra">
-          <a class="btn btn-primary" href="https://wa.me/393293257911" target="_blank" rel="noopener">Prenota su WhatsApp</a>
-          <a class="lang-switch" href="index-en.html" aria-label="Switch to English">EN</a>
-        </div>
-      </nav>
-
-      <div class="header-actions">
-        <a class="lang-switch" href="index-en.html" aria-label="Switch to English">EN</a>
-        <a class="btn btn-ghost" href="https://wa.me/393293257911" target="_blank" rel="noopener">Prenota</a>
-      </div>
-
-      <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Apri menu">
+      <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Apri menu" data-label-open="Apri menu" data-label-close="Chiudi menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
+
+      <nav id="nav" class="nav" aria-label="Navigazione principale">
+        <ul>
+          <li><a class="is-active" href="#home">Home</a></li>
+          <li><a href="#filosofia">Filosofia</a></li>
+          <li><a href="#piatti">Piatti</a></li>
+          <li><a href="#galleria">Galleria</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+
+      <a class="lang-switch menu-link" href="menu.html">Menu</a>
+      <a class="lang-switch" href="index-en.html" aria-label="Switch to English">EN</a>
     </div>
   </header>
 
   <main id="contenuto">
     <section id="home" class="hero">
-        <div class="container hero-shell">
-        <div class="hero-copy">
-          <span class="eyebrow reveal">Cucina pugliese contemporanea</span>
-          <h1 class="reveal delay-1">Il gusto autentico di Bari Vecchia, vestito di una nuova eleganza.</h1>
-          <p class="lead reveal delay-2">Una trattoria che unisce ricette baresi, ingredienti stagionali e un&apos;atmosfera calda ma raffinata. L&apos;esperienza resta familiare, il design diventa memorabile.</p>
-
-          <div class="hero-cta reveal delay-3">
-            <a href="menu.html" class="btn btn-primary">Scopri il menu</a>
-            <a href="#contatti" class="btn btn-secondary">Prenota un tavolo</a>
+      <div class="container hero-shell">
+        <div class="hero-copy reveal">
+          <span class="hero-note">Bari Vecchia, luce calda, cucina vera</span>
+          <span class="eyebrow">Tradizione pugliese</span>
+          <h1>Una locanda barese con eleganza mediterranea.</h1>
+          <p class="lead">Nel cuore del borgo antico, la tavola si veste di verde profondo, riflessi dorati e una narrazione piu immersiva. Rimane l'anima artigianale della trattoria, ma con una presenza visiva piu sofisticata, calda e contemporanea.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="menu.html">Scopri il menu</a>
+            <a class="btn btn-outline-green" href="#contatti">Prenota un tavolo</a>
           </div>
-
-          <div class="hero-meta reveal delay-4">
-            <div class="hero-stat">
-              <strong data-counter="4" data-suffix=",4">0</strong>
-              <span>rating Google</span>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-value"><a href="#recensioni">4.4/5</a></span>
+              <span class="stat-label">Recensioni Google</span>
             </div>
-            <div class="hero-stat">
-              <strong data-counter="2000" data-suffix="+">0</strong>
-              <span>recensioni</span>
+            <div class="stat">
+              <span class="stat-value">Bari</span>
+              <span class="stat-label">Tra pietra viva e vicoli storici</span>
             </div>
-            <div class="hero-stat">
-              <strong data-counter="12" data-suffix="+">0</strong>
-              <span>piatti signature</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal-scale delay-2">
-          <div class="hero-carousel" data-hero-carousel>
-            <article class="hero-slide is-active" data-hero-slide>
-              <img src="assets/img/locanda.jpeg" alt="Sala della Locanda dell'Elfo">
-              <div class="hero-slide-overlay">
-                <span class="kicker">Atmosfera</span>
-                <h3>Una sala calda, intima e contemporanea.</h3>
-                <p>Materiali morbidi e luce raccolta per valorizzare l'esperienza in ogni servizio.</p>
-              </div>
-            </article>
-            <article class="hero-slide" data-hero-slide>
-              <img src="assets/img/assassina.jpeg" alt="Spaghetti all'assassina">
-              <div class="hero-slide-overlay">
-                <span class="kicker">Icona di Bari</span>
-                <h3>Spaghetti all'assassina, croccanti al punto giusto.</h3>
-                <p>Un primo che racconta il carattere della cucina barese con un impatto visivo piu pulito.</p>
-              </div>
-            </article>
-            <article class="hero-slide" data-hero-slide>
-              <img src="assets/img/bavincenzof.jpeg" alt="Piatto signature Mbà Vnginz">
-              <div class="hero-slide-overlay">
-                <span class="kicker">Signature dish</span>
-                <h3>Mb&agrave; Vnginz, cremoso e riconoscibile.</h3>
-                <p>Gamberi, gorgonzola D.O.P., rucola e pomodoro fresco in un equilibrio sorprendente.</p>
-              </div>
-            </article>
-            <div class="hero-carousel-controls">
-              <button class="hero-carousel-btn" type="button" data-hero-prev aria-label="Slide precedente">&larr;</button>
-              <div class="hero-carousel-dots" data-hero-dots></div>
-              <button class="hero-carousel-btn" type="button" data-hero-next aria-label="Slide successiva">&rarr;</button>
+            <div class="stat">
+              <span class="stat-value">Puglia</span>
+              <span class="stat-label">Mare, pasta fresca, ospitalita sincera</span>
             </div>
           </div>
         </div>
-      </div>
-      <div class="curve-divider" aria-hidden="true"></div>
-    </section>
 
-    <section class="section">
-      <div class="container section-box">
-        <div class="stats-grid">
-          <article class="stat-card reveal-up">
-            <strong data-counter="18" data-suffix="+">0</strong>
-            <span>anni di accoglienza</span>
-            <p>Un luogo riconoscibile per chi cerca Bari vera, non costruita.</p>
-          </article>
-          <article class="stat-card reveal-up delay-1">
-            <strong data-counter="100" data-suffix="%">0</strong>
-            <span>ingredienti selezionati</span>
-            <p>Filiera corta, sapori netti e piatti eseguiti con precisione.</p>
-          </article>
-          <article class="stat-card reveal-up delay-2">
-            <strong data-counter="2" data-suffix=" servizi">0</strong>
-            <span>pranzo e cena</span>
-            <p>Un&apos;esperienza scorrevole, progettata per funzionare bene in ogni fascia oraria.</p>
-          </article>
-          <article class="stat-card reveal-up delay-3">
-            <strong data-counter="1" data-suffix=" anima">0</strong>
-            <span>tradizione + design</span>
-            <p>Un&apos;identit&agrave; coerente tra sala, piatti, tono visivo e prenotazione.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="esperienza" class="section">
-      <div class="container section-box experience-grid">
-        <div class="experience-panel reveal-up">
-          <span class="eyebrow">L&apos;esperienza</span>
-          <h2>Design pulito, servizio fluido, atmosfera che resta impressa.</h2>
-          <p class="lead">Il nuovo impianto visivo rende il sito più chiaro e coinvolgente: navigazione rapida, sezioni leggibili, call to action evidenti e contenuti valorizzati da immagini forti e microinterazioni leggere.</p>
-          <div class="feature-grid" style="margin-top: 2rem;">
-            <article class="feature-card reveal-up">
-              <div class="icon">01</div>
-              <h3>UX piu chiara</h3>
-              <p>Gerarchie visive nette, spaziature equilibrate e percorsi di prenotazione piu immediati.</p>
-            </article>
-            <article class="feature-card reveal-up delay-1">
-              <div class="icon">02</div>
-              <h3>Motion elegante</h3>
-              <p>Reveal on scroll, hover 3D, parallax soft e transizioni morbide tra le sezioni.</p>
-            </article>
-            <article class="feature-card reveal-up delay-2">
-              <div class="icon">03</div>
-              <h3>Responsive reale</h3>
-              <p>Layout ottimizzato per mobile, tablet e desktop senza perdere impatto visivo.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="experience-media reveal-scale delay-2">
-          <img class="tall" src="assets/img/bavincenzof.jpeg" alt="Piatto signature della casa">
-          <div class="experience-stack">
-            <img class="short" src="assets/img/scoglio2.jpeg" alt="Spaghetti allo scoglio">
-            <div class="note-card">
-              <span class="eyebrow">Focus piatti</span>
-              <h3>Tradizione che si vede prima ancora di assaggiare.</h3>
-              <p>Card immersive, immagini piu materiche e una direzione artistica piu coerente con il posizionamento del ristorante.</p>
-            </div>
+        <div class="hero-card reveal-img delay-1 parallax-soft">
+          <img src="assets/img/assassina.jpeg" alt="Piatto iconico della Locanda dell'Elfo">
+          <div class="hero-card-badge">
+            <strong>La sala, i profumi, il ritmo giusto.</strong>
+            <span>Un'estetica piu curata, ma sempre con l'anima di una vera locanda barese.</span>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container section-box">
-        <div class="section-head">
-          <span class="eyebrow reveal">Piatti in evidenza</span>
-          <h2 class="reveal delay-1">Card immersive, texture forti e dettagli che invitano al click.</h2>
-          <p class="lead reveal delay-2">Ogni piatto &egrave; presentato in modo piu editoriale, con immagini piu grandi e hover tridimensionali che aggiungono profondit&agrave; senza appesantire la navigazione.</p>
+      <div class="container showcase-grid">
+        <div class="surface-panel reveal">
+          <span class="hero-note">Roberta</span>
+          <span class="eyebrow">Piatti firma</span>
+          <div class="food-slider" id="foodSlider">
+            <div class="slide active" style="background-image:url('assets/img/assassina.jpeg');">
+              <div class="slide-overlay">
+                <h3>Spaghetti all'assassina</h3>
+                <a class="btn btn-secondary" href="menu.html">Vai al menu completo</a>
+              </div>
+            </div>
+            <div class="slide" style="background-image:url('assets/img/scoglio2.jpeg');">
+              <div class="slide-overlay">
+                <h3>Spaghetti allo scoglio</h3>
+                <a class="btn btn-secondary" href="menu.html">Vai al menu completo</a>
+              </div>
+            </div>
+            <div class="slide active" style="background-image:url('assets/img/polpo.jpeg');">
+              <div class="slide-overlay">
+                <h3>Polpo alla griglia</h3>
+                <a class="btn btn-secondary" href="menu.html">Vai al menu completo</a>
+              </div>
+            </div>
+            <div class="slide" style="background-image:url('assets/img/cozze.png');">
+              <div class="slide-overlay">
+                <h3>Saute di cozze</h3>
+                <a class="btn btn-secondary" href="menu.html">Vai al menu completo</a>
+              </div>
+            </div>
+            <div class="slide" style="background-image:url('assets/img/bavincenzo.jpeg');">
+              <div class="slide-overlay">
+                <h3>Mba Vnginz</h3>
+                <a class="btn btn-secondary" href="menu.html">Vai al menu completo</a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="dish-strip">
-          <article class="dish-card reveal-scale">
+        <div class="showcase-notes">
+          <article class="surface-panel note-card reveal delay-1">
+            <h3>La nostra cucina</h3>
+            <p>Scegliamo solo materie prime locali e pesce proveniente dalle coste pugliesi, per offrire un'esperienza autentica e ricca di gusto.</p>
+          </article>
+          <article class="surface-panel note-card reveal delay-2">
+            <h3>Il sapore della nostra terra</h3>
+            <p>La cucina barese e fatta di gesti antichi: la pasta tirata a mano, il profumo del mare la mattina presto, le domeniche in famiglia.
+              Alla Locanda dell'Elfo abbiamo voluto custodire tutto questo, portando nel piatto la vera essenza della Puglia.
+              Perche mangiare da noi significa vivere Bari davvero, non solo visitarla.</p>
+          </article>
+          <article class="surface-panel note-card reveal delay-3">
+            <h3>Bari Vecchia: il nostro cuore</h3>
+            <p>La Locanda dell'Elfo si trova tra i vicoli suggestivi di Bari Vecchia, a due passi dal mare e dalla storia millenaria della citta.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="filosofia" class="section">
+      <div class="container story-grid">
+        <div class="story-visual reveal-img parallax-soft">
+          <img class="story-main-image" src="assets/img/orecchiettebrasciola.jpeg" alt="Piatto della Locanda dell'Elfo">
+          <div class="story-floating-card">
+            <span class="eyebrow">Cucina di territorio</span>
+            <p>Tradizione barese, mano gentile, impiattamento pulito e una luce da cena mediterranea.</p>
+          </div>
+        </div>
+
+        <div class="story-copy reveal delay-1">
+          <span class="hero-note">Tradizione</span>
+          <span class="eyebrow">Filosofia</span>
+          <h2>Una locanda che parla barese anche quando resta elegante.</h2>
+          <p>Un viaggio tra tradizione e mare.</p>
+          <p>Il nostro menu varia durante l'anno per rispettare la stagionalita e la freschezza degli ingredienti, ma la promessa rimane sempre la stessa: piatti genuini, sapori intensi e porzioni che profumano di casa.</p>
+          <p>Dalle paste fatte in casa ai crudi di mare, fino ai secondi di pesce alla griglia, ogni proposta nasce per esaltare la ricchezza della cucina pugliese.</p>
+          <p>Scegliamo solo materie prime locali e pesce proveniente dalle coste pugliesi, per offrire un'esperienza autentica e ricca di gusto.</p>
+          <p>La nostra filosofia?</p><p> Rispetto della tradizione, qualita senza compromessi e ospitalita sincera.</p>
+          <a class="btn btn-primary" href="menu.html">Guarda i piatti</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="piatti" class="section">
+      <div class="container">
+        <header class="section-head center reveal">
+          <span class="hero-note">La Cucina</span>
+          <span class="eyebrow">Da non perdere</span>
+          <h2>Un viaggio nei sapori della tradizione barese.</h2>
+          <p class="lead">Lasciati guidare dalle immagini: ogni piatto e un incontro tra mare, storia e passione. Un viaggio nei sapori piu autentici di Bari Vecchia.</p>
+        </header>
+
+        <div class="signature-grid">
+          <article class="dish-card reveal">
             <img src="assets/img/assassina.jpeg" alt="Spaghetti all'assassina">
-            <div class="overlay">
-              <span class="tag">Croccante iconico</span>
-              <h3>Spaghetti all&apos;assassina</h3>
-              <p>Il piatto simbolo reinterpretato con una presenza visiva piu forte.</p>
+            <div class="dish-card-content">
+              <h3>Assassina</h3>
+              <p>Croccante, scura, vibrante. Un classico barese raccontato con un taglio visivo piu contemporaneo.</p>
             </div>
           </article>
-          <article class="dish-card reveal-scale delay-1">
+          <article class="dish-card reveal delay-1">
             <img src="assets/img/scampi.png" alt="Spaghetti agli scampi">
-            <div class="overlay">
-              <span class="tag">Mare premium</span>
-              <h3>Spaghetti agli scampi</h3>
-              <p>Finitura luminosa, contrasti morbidi e focus sul prodotto.</p>
+            <div class="dish-card-content">
+              <h3>Scampi</h3>
+              <p>Mare, dolcezza e una materia prima che si fa notare senza bisogno di effetti.</p>
             </div>
           </article>
-          <article class="dish-card reveal-scale delay-2">
-            <img src="assets/img/cozze.png" alt="Sauté di cozze">
-            <div class="overlay">
-              <span class="tag">Da condividere</span>
-              <h3>Sauté di cozze</h3>
-              <p>Un antipasto che apre l’esperienza con immediatezza e carattere.</p>
+          <article class="dish-card reveal delay-2">
+            <img src="assets/img/cozze.png" alt="Saute di cozze">
+            <div class="dish-card-content">
+              <h3>Cozze</h3>
+              <p>Un antipasto che porta subito in riva, con sapore pieno e gesto semplice.</p>
             </div>
           </article>
         </div>
@@ -252,83 +224,85 @@
     </section>
 
     <section id="galleria" class="section">
-      <div class="container section-box">
-        <div class="section-head">
-          <span class="eyebrow reveal">Gallery</span>
-          <h2 class="reveal delay-1">Una griglia moderna che mette in scena prodotto, sala e atmosfera.</h2>
-          <p class="lead reveal delay-2">La gallery passa da semplice raccolta immagini a layout piu dinamico, con proporzioni miste, overlay editoriali e focus sui momenti chiave dell&apos;esperienza.</p>
-        </div>
+      <div class="container">
+        <header class="section-head center reveal">
+          <span class="hero-note">La Locanda</span>
+          <span class="eyebrow">Galleria</span>
+          <h2>Dove i sapori diventano emozioni.</h2>
+          <p class="lead">In un'atmosfera intima e suggestiva, tra luci calde e profumo di mare, La Locanda dell'Elfo offre un'esperienza culinaria capace di emozionare. Un luogo dove il tempo rallenta e i sapori raccontano la nostra storia.</p>
+        </header>
 
         <div class="gallery-grid">
-          <article class="gallery-card large reveal-scale">
-            <img src="assets/img/bavincenzo.jpeg" alt="Pasta fumante servita in tavola">
-            <div class="gallery-copy">
-              <h3>Signature plating</h3>
-              <p>Immagini piu protagoniste, leggibili anche su mobile.</p>
+          <article class="gallery-card large reveal-img parallax-soft">
+            <img src="assets/img/scoglio2.jpeg" alt="Piatto di mare della Locanda dell'Elfo">
+            <div class="gallery-caption">
+              <h3>Mare in primo piano</h3>
+              <p>Materie prime e colore, senza sovraccaricare la scena.</p>
             </div>
           </article>
-          <article class="gallery-card medium reveal-scale delay-1">
-            <img src="assets/img/locanda.jpeg" alt="Interni del ristorante">
-            <div class="gallery-copy">
-              <h3>Sala accogliente</h3>
-              <p>Materiali caldi, luci morbide e ritmo visivo coerente.</p>
-            </div>
-          </article>
-          <article class="gallery-card small reveal-scale delay-2">
-            <img src="assets/img/antipasti.png" alt="Antipasto tradizionale">
-            <div class="gallery-copy">
+          <article class="gallery-card reveal-img delay-1">
+            <img src="assets/img/antipasti.png" alt="Antipasti tradizionali">
+            <div class="gallery-caption">
               <h3>Antipasti</h3>
+              <p>Ingresso conviviale, sapori immediati.</p>
             </div>
           </article>
-          <article class="gallery-card small reveal-scale">
+          <article class="gallery-card tall reveal-img delay-2 parallax-soft">
+            <img src="assets/img/sannicola.jpeg" alt="Dettaglio del locale">
+            <div class="gallery-caption">
+              <h3>Atmosfera</h3>
+              <p>Un tono piu narrativo anche nelle immagini.</p>
+            </div>
+          </article>
+          <article class="gallery-card reveal-img">
             <img src="assets/img/pastaefagioli.png" alt="Pasta e fagioli">
-            <div class="gallery-copy">
-              <h3>Comfort food</h3>
-            </div>
-          </article>
-          <article class="gallery-card medium reveal-scale delay-1">
-            <img src="assets/img/scoglio.jpeg" alt="Spaghetti allo scoglio">
-            <div class="gallery-copy">
-              <h3>Dal mare</h3>
-              <p>Piatti intensi raccontati con taglio piu premium.</p>
-            </div>
-          </article>
-          <article class="gallery-card large reveal-scale delay-2">
-            <img src="assets/img/sannicola.jpeg" alt="Dettaglio di un piatto della Locanda">
-            <div class="gallery-copy">
-              <h3>Tradizione barese</h3>
-              <p>Una presentazione piu moderna senza perdere autenticit&agrave;.</p>
+            <div class="gallery-caption">
+              <h3>Pasta e fagioli</h3>
+              <p>Casa, profondita, comfort.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section testimonial-section">
-      <div class="container section-box">
-        <div class="testimonial-shell reveal-up" data-testimonials>
-          <div class="testimonial-header">
-            <span class="eyebrow" style="color: #fffaf4; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12);">Recensioni</span>
-            <h2>Le parole degli ospiti confermano l&apos;esperienza.</h2>
-            <p class="lead">Sezione piu scenografica, con slider leggero, transizioni morbide e profondit&agrave; visiva in 3D.</p>
-            <div class="rating-chip">
-              <strong>4,4 / 5</strong>
-              <span>Oltre 2.000 recensioni su Google</span>
+    <section id="recensioni" class="section ct-section" aria-labelledby="ctTitle">
+      <div class="container">
+        <div class="surface-panel">
+          <header class="section-head center reveal">
+            <span class="hero-note">Quello che dicono di noi</span>
+            <span class="eyebrow">Recensioni</span>
+            <h2 id="ctTitle">Le parole degli ospiti confermano il calore della sala e della cucina.</h2>
+            <p class="lead">Chi ci sceglie parla di atmosfera calda, piatti che ricordano la tradizione barese e momenti da condividere.
+              Sono voci che custodiamo con gratitudine e che ci spingono, ogni giorno, a fare ancora meglio.</p>
+            <div class="revx-badge" role="note">
+              <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                <path fill="#FFC107" d="M43.6 20.5h-1.9V20H24v8h11.3c-1.7 4.6-6 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l5.7-5.7C33.6 7 29.1 5 24 5 13 5 4 14 4 25s9 20 20 20 19-9 19-20c0-1.5-.2-3-.4-4.5z"></path>
+                <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 16 18.9 13 24 13c3 0 5.7 1.1 7.8 2.9l5.7-5.7C33.6 7 29.1 5 24 5c-7.7 0-14.3 4.3-17.7 10.7z"></path>
+                <path fill="#4CAF50" d="M24 45c5 0 9.6-2 12.9-5.2l-6-5c-1.9 1.5-4.3 2.2-6.9 2.2-5.2 0-9.5-3.3-11.2-8l-6.6 5C9.5 40.6 16.2 45 24 45z"></path>
+                <path fill="#1976D2" d="M43.6 20.5H24v8h11.3c-.8 2.2-2.3 4.1-4.3 5.5l6 5C40.1 35.8 44 30.8 44 24c0-1.5-.2-3-.4-4.5z"></path>
+              </svg>
+              <strong class="revx-score">4.4</strong>
+              <span class="revx-meta">/ 5 su Google</span>
+              <a class="revx-link" href="https://www.google.com/maps/search/?api=1&query=La%20Locanda%20dell%27Elfo%20Bari" target="_blank" rel="noopener">Apri scheda</a>
             </div>
-          </div>
+          </header>
 
-          <div class="testimonial-stage">
-            <div class="testimonial-images" data-testimonial-images></div>
-            <div class="testimonial-content">
-              <blockquote data-testimonial-quote></blockquote>
-              <div class="testimonial-meta">
-                <strong data-testimonial-name></strong>
-                <span data-testimonial-role></span>
+          <div class="ct-wrap reveal delay-1">
+            <div class="ct-images" id="ctImages"></div>
+            <div class="ct-content">
+              <span class="quote-mark" aria-hidden="true">"</span>
+              <div class="ct-quote-wrap" id="ctQuoteWrap">
+                <h3 class="ct-name" id="ctName"></h3>
+                <p class="ct-desig" id="ctDesig"></p>
+                <p class="ct-quote" id="ctQuote"></p>
               </div>
-              <div class="testimonial-controls">
-                <button class="control-btn" type="button" data-testimonial-prev aria-label="Recensione precedente">&larr;</button>
-                <button class="control-btn" type="button" data-testimonial-next aria-label="Recensione successiva">&rarr;</button>
-                <div class="testimonial-dots" data-testimonial-dots></div>
+              <div class="ct-arrows">
+                <button class="ct-btn" id="ctPrev" aria-label="Recensione precedente">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                </button>
+                <button class="ct-btn" id="ctNext" aria-label="Recensione successiva">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>
+                </button>
               </div>
             </div>
           </div>
@@ -337,38 +311,28 @@
     </section>
 
     <section id="contatti" class="section">
-      <div class="container section-box contact-grid">
-        <div class="contact-panel reveal-up">
-          <span class="eyebrow">Contatti & prenotazioni</span>
-          <h2>Raggiungerci deve essere semplice quanto scegliere cosa ordinare.</h2>
-          <p class="lead">Contatti evidenti, call to action immediate e mappa integrata in un layout pulito, leggibile e ottimizzato anche da smartphone.</p>
-
+      <div class="container contact-grid">
+        <div class="contact-card reveal">
+          <span class="hero-note">Prenota</span>
+          <span class="eyebrow">Contatti</span>
+          <h2>Vieni a trovarci tra le pietre e il mare di Bari Vecchia.</h2>
+          <p>Tra i vicoli di Bari Vecchia c'e un luogo dove il mare profuma l'aria
+            e la tradizione diventa emozione.
+            Alla Locanda dell'Elfo il tempo rallenta
+            e ogni piatto racconta una storia.
+            Ti aspettiamo dove la Puglia diventa magia.</p>
           <ul class="contact-list">
-            <li>
-              <strong>Telefono</strong>
-              <a href="tel:+393293257911">+39 329 325 7911</a>
-            </li>
-            <li>
-              <strong>Email</strong>
-              <a href="mailto:prenotazioni@lalocandadellelfo.it">prenotazioni@lalocandadellelfo.it</a>
-            </li>
-            <li>
-              <strong>Indirizzo</strong>
-              <span>Strada dei Gesuiti, 28/30 &middot; 70122 Bari</span>
-            </li>
-            <li>
-              <strong>Orari</strong>
-              <span>Mar-Dom 12:00-15:00 &middot; 19:00-22:00</span>
-            </li>
+            <li><strong>Telefono:</strong> <a href="tel:+393293257911">+39 329 325 7911</a></li>
+            <li><strong>Indirizzo:</strong> Strada dei Gesuiti, 28/30 - 70122 Bari</li>
+            <li><strong>Orari:</strong> Mar-Dom 12:00-15:00 / 19:00-22:00</li>
           </ul>
-
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://wa.me/393293257911" target="_blank" rel="noopener">Prenota su WhatsApp</a>
-            <a class="btn btn-secondary" href="mailto:prenotazioni@lalocandadellelfo.it">Richiedi informazioni</a>
+            <a class="btn btn-primary btn-call" href="tel:+393293257911" target="_blank" rel="noopener">Chiamaci</a>
+            <a class="btn btn-secondary" href="mailto:prenotazioni@lalocandadellelfo.it">Chiedi info</a>
           </div>
         </div>
 
-        <div class="map-shell reveal-scale delay-2">
+        <div class="map-card reveal-img delay-1">
           <iframe title="Mappa La Locanda dell'Elfo" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Strada%20dei%20Gesuiti%2028%20Bari&output=embed" allowfullscreen></iframe>
         </div>
       </div>
@@ -377,11 +341,9 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> La Locanda dell'Elfo &middot; Strada dei Gesuiti 28/30, Bari &middot; P.IVA XXXXXXXXXXX</p>
+      <p>&copy; <span id="year"></span> La Locanda dell'Elfo - Strada dei Gesuiti 28/30 - Bari</p>
       <ul class="social">
         <li><a href="https://instagram.com/lalocandadellelfo" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://facebook.com/lalocandadellelfo" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://tiktok.com/@lalocandadellelfo" target="_blank" rel="noopener">TikTok</a></li>
       </ul>
     </div>
   </footer>

@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Menu | La Locanda dell'Elfo</title>
-  <meta name="description" content="Scopri il menu della Locanda dell'Elfo: antipasti, primi, secondi e dolci ispirati alla tradizione pugliese.">
+  <meta name="description" content="Discover the menu of La Locanda dell'Elfo: starters, pasta, mains and desserts inspired by Apulian tradition.">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,66 +12,67 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+  <a class="skip-link" href="#content">Skip to content</a>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="La Locanda dell'Elfo home">
-        <img class="brand-logo" src="assets/img/logo.jpg" alt="Logo La Locanda dell'Elfo" width="48" height="48">
+      <a class="brand" href="index-en.html" aria-label="La Locanda dell'Elfo home">
+        <img class="brand-logo" src="assets/img/logo.jpg" alt="La Locanda dell'Elfo logo" width="48" height="48">
         <span class="brand-name">La Locanda dell'Elfo</span>
       </a>
 
-      <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Apri menu" data-label-open="Apri menu" data-label-close="Chiudi menu">
+      <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
 
-      <nav id="nav" class="nav" aria-label="Navigazione principale">
+      <nav id="nav" class="nav" aria-label="Main navigation">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#prenotazioni">Prenota</a></li>
+          <li><a href="index-en.html">Home</a></li>
+          <li><a href="#booking">Book</a></li>
         </ul>
       </nav>
 
       <a class="lang-switch menu-link is-active is-disabled" href="#menu" aria-disabled="true" tabindex="-1">Menu</a>
-      <a class="lang-switch" href="menu-en.html" aria-label="Switch to English">EN</a>
+      <a class="lang-switch" href="menu.html" aria-label="Passa alla versione italiana">IT</a>
     </div>
   </header>
 
-  <main id="contenuto">
+  <main id="content">
+
 
     <section id="menu" class="section">
       <div class="container">
         <header class="section-head center reveal">
-          <span class="eyebrow">Le categorie</span>
-          <h2>Antipasti, primi, secondi e dolci in una composizione piu pulita e preziosa.</h2>
-          <p class="lead menu-section-intro">Titoli caldi, descrizioni leggere, prezzi sempre leggibili. Il nuovo layout lascia respirare ogni piatto e rende la pagina coerente con l'identita elegante della locanda.</p>
+          <span class="eyebrow">Categories</span>
+          <h2>Starters, pasta, mains, and desserts in a cleaner, more elegant composition.</h2>
+          <p class="lead menu-section-intro">Warm titles, lighter descriptions, and prices that stay immediately legible. The layout gives each dish more space while staying fully aligned with the restaurant's new identity.</p>
         </header>
 
         <div class="menu-grid" id="menuGrid"></div>
       </div>
     </section>
 
-    <section id="prenotazioni" class="section">
+    <section id="booking" class="section">
       <div class="container reservation-grid">
         <div class="surface-panel reservation-panel reveal">
-          <span class="eyebrow">Prenotazioni</span>
-          <h2>Quando il menu convince, il passo successivo deve essere semplice.</h2>
-          <p>La chiusura della pagina resta chiara e immediata: pochi elementi, call to action evidenti, un tono visivo coerente con il resto dell'esperienza.</p>
+          <span class="eyebrow">Reservations</span>
+          <h2>When the menu feels right, booking should be immediate.</h2>
+          <p>The closing section stays clear and direct: just the essential details, strong calls to action, and the same elegant tone used across the site.</p>
           <div class="reservation-notes">
-            <div><strong>Telefono:</strong> +39 329 325 7911</div>
+            <div><strong>Phone:</strong> +39 329 325 7911</div>
             <div><strong>Email:</strong> prenotazioni@lalocandadellelfo.it</div>
-            <div><strong>Indirizzo:</strong> Strada dei Gesuiti, 28/30 - Bari</div>
+            <div><strong>Address:</strong> Strada dei Gesuiti, 28/30 - Bari</div>
           </div>
           <div class="cta-row">
             <a class="btn btn-primary" href="https://wa.me/393293257911" target="_blank" rel="noopener">WhatsApp</a>
-            <a class="btn btn-secondary" href="index.html#contatti">Vai ai contatti</a>
+            <a class="btn btn-secondary" href="index-en.html#contact">Go to contact</a>
           </div>
         </div>
 
         <div class="map-card reveal-img delay-1">
-          <iframe title="Mappa La Locanda dell'Elfo" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Strada%20dei%20Gesuiti%2028%20Bari&output=embed" allowfullscreen></iframe>
+          <iframe title="Map to La Locanda dell'Elfo" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Strada%20dei%20Gesuiti%2028%20Bari&output=embed" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -93,39 +94,39 @@
     (function () {
       const menuData = [
         {
-          title: "Antipasti",
-          subtitle: "Piccoli inizi di mare e di terra, pensati per aprire la tavola con luce e carattere.",
+          title: "Starters",
+          subtitle: "Small openings from land and sea, designed to set the tone with warmth and character.",
           items: [
-            { name: "Bruschette della casa", description: "Pane caldo, pomodoro maturo, olio extravergine e un tocco verde mediterraneo.", price: "8 EUR" },
-            { name: "Saute di cozze", description: "Profumo iodato, fondo saporito e una presentazione piu essenziale.", price: "12 EUR" },
-            { name: "Polpette artigianali", description: "Morbide, dorate, rassicuranti come un pranzo della domenica.", price: "10 EUR" }
+            { name: "House bruschette", description: "Warm bread, ripe tomato, extra virgin olive oil, and a fresh Mediterranean note.", price: "8 EUR" },
+            { name: "Sauteed mussels", description: "Briny aroma, rich cooking juices, and a more essential presentation.", price: "12 EUR" },
+            { name: "Artisanal meatballs", description: "Soft, golden, and comforting like a Sunday family lunch.", price: "10 EUR" }
           ]
         },
         {
-          title: "Primi",
-          subtitle: "La parte piu identitaria del percorso: pasta fresca, mare, consistenze e memoria barese.",
+          title: "Pasta",
+          subtitle: "The most identity-driven part of the menu: fresh pasta, seafood, texture, and Bari memory.",
           items: [
-            { name: "Orecchiette alle cime di rapa", description: "Amaro gentile, acciuga, pane croccante e gesto pugliese riconoscibile.", price: "12 EUR" },
-            { name: "Spaghetti all'assassina", description: "Croccanti, intensi, scuri al punto giusto, con la firma della cottura in padella.", price: "14 EUR" },
-            { name: "Spaghetti allo scoglio", description: "Cremosita di mare, crostacei e luce salmastra nel piatto.", price: "18 EUR" }
+            { name: "Orecchiette with turnip greens", description: "Gentle bitterness, anchovy, crisp breadcrumbs, and a classic Apulian gesture.", price: "12 EUR" },
+            { name: "Spaghetti all'assassina", description: "Toasted, intense, deeply flavored, and defined by its iconic pan finish.", price: "14 EUR" },
+            { name: "Seafood spaghetti", description: "Sea-scented creaminess, shellfish, and a bright Adriatic character.", price: "18 EUR" }
           ]
         },
         {
-          title: "Secondi",
-          subtitle: "Cotture pulite, materia in evidenza e una presenza piu elegante nel piatto.",
+          title: "Main courses",
+          subtitle: "Cleaner cooking, ingredients at the center, and a more elegant presence on the plate.",
           items: [
-            { name: "Polpo alla griglia", description: "Esterno appena tostato, interno morbido e note mediterranee di brace.", price: "18 EUR" },
-            { name: "Pesce fresco del giorno", description: "Disponibilita variabile secondo mercato, lavorato con massima essenzialita.", price: "20 EUR" },
-            { name: "Scampi alla barese", description: "Dolcezza marina e finitura pulita per un secondo di carattere.", price: "22 EUR" }
+            { name: "Grilled octopus", description: "Lightly charred outside, tender inside, with Mediterranean notes from the grill.", price: "18 EUR" },
+            { name: "Fresh fish of the day", description: "Availability depends on the market, prepared with restraint and clarity.", price: "20 EUR" },
+            { name: "Bari-style scampi", description: "Sweet marine flavor and a cleaner finish for a dish with real presence.", price: "22 EUR" }
           ]
         },
         {
-          title: "Dolci",
-          subtitle: "Chiusure morbide, leggere e rassicuranti, con un tocco piu raffinato.",
+          title: "Desserts",
+          subtitle: "Soft, light, reassuring endings with a slightly more refined touch.",
           items: [
-            { name: "Tiramisu della locanda", description: "Crema soffice, cacao delicato e un finale avvolgente.", price: "6 EUR" },
-            { name: "Panna cotta", description: "Morbida, fresca, minimale, servita con equilibrio.", price: "5 EUR" },
-            { name: "Dolce del giorno", description: "Una proposta variabile che segue stagione, ispirazione e disponibilita.", price: "6 EUR" }
+            { name: "Locanda tiramisu", description: "Silky cream, delicate cocoa, and a deeply comforting finish.", price: "6 EUR" },
+            { name: "Panna cotta", description: "Soft, fresh, minimal, and served with balance.", price: "5 EUR" },
+            { name: "Dessert of the day", description: "A changing proposal shaped by season, inspiration, and daily availability.", price: "6 EUR" }
           ]
         }
       ];
