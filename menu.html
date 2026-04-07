@@ -45,8 +45,8 @@
       <div class="container">
         <header class="section-head center reveal">
           <span class="eyebrow">Le categorie</span>
-          <h2>Antipasti, primi, secondi e dolci in una composizione piu pulita e preziosa.</h2>
-          <p class="lead menu-section-intro">Titoli caldi, descrizioni leggere, prezzi sempre leggibili. Il nuovo layout lascia respirare ogni piatto e rende la pagina coerente con l'identita elegante della locanda.</p>
+          <h2>Antipasti, primi, secondi...</h2>
+          <p class="lead menu-section-intro">Il nostro menu.</p>
         </header>
 
         <div class="menu-grid" id="menuGrid"></div>
@@ -57,11 +57,10 @@
       <div class="container reservation-grid">
         <div class="surface-panel reservation-panel reveal">
           <span class="eyebrow">Prenotazioni</span>
-          <h2>Quando il menu convince, il passo successivo deve essere semplice.</h2>
-          <p>La chiusura della pagina resta chiara e immediata: pochi elementi, call to action evidenti, un tono visivo coerente con il resto dell'esperienza.</p>
+          <h2>Entra nella Locanda e lasciati guidare.</h2>
+          <p>Ogni tavolo è preparato con attenzione per offrirti un momento da ricordare, che sia una cena intima, una serata tra amici o un’occasione speciale.</p>
           <div class="reservation-notes">
             <div><strong>Telefono:</strong> +39 329 325 7911</div>
-            <div><strong>Email:</strong> prenotazioni@lalocandadellelfo.it</div>
             <div><strong>Indirizzo:</strong> Strada dei Gesuiti, 28/30 - Bari</div>
           </div>
           <div class="cta-row">
@@ -82,8 +81,6 @@
       <p>&copy; <span id="year"></span> La Locanda dell'Elfo - Strada dei Gesuiti 28/30 - Bari</p>
       <ul class="social">
         <li><a href="https://instagram.com/lalocandadellelfo" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://facebook.com/lalocandadellelfo" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://tiktok.com/@lalocandadellelfo" target="_blank" rel="noopener">TikTok</a></li>
       </ul>
     </div>
   </footer>
@@ -93,39 +90,52 @@
     (function () {
       const menuData = [
         {
-          title: "Antipasti",
+          title: "Antipasti e Specialità",
           subtitle: "Piccoli inizi di mare e di terra, pensati per aprire la tavola con luce e carattere.",
           items: [
-            { name: "Bruschette della casa", description: "Pane caldo, pomodoro maturo, olio extravergine e un tocco verde mediterraneo.", price: "8 EUR" },
-            { name: "Saute di cozze", description: "Profumo iodato, fondo saporito e una presentazione piu essenziale.", price: "12 EUR" },
-            { name: "Polpette artigianali", description: "Morbide, dorate, rassicuranti come un pranzo della domenica.", price: "10 EUR" }
+            { name: "Antipasto Barese", description: "Pane caldo, pomodoro maturo, olio extravergine e un tocco verde mediterraneo.", price: "22 EUR" },
+             { name: "Bruschette + Tagliere", description: "Bruschette e tagliere di salumi  e formaggi locali", price: "20 EUR" } ,
+             { name: "4 Tipi di Primi Piatti tipici Baresi", description: "Patate riso e cozze, orecchiette con brasciola, orecchiette e cime di rapa, spaghetti all'assassina", price: "50 EUR" } 
           ]
         },
         {
           title: "Primi",
           subtitle: "La parte piu identitaria del percorso: pasta fresca, mare, consistenze e memoria barese.",
           items: [
-            { name: "Orecchiette alle cime di rapa", description: "Amaro gentile, acciuga, pane croccante e gesto pugliese riconoscibile.", price: "12 EUR" },
-            { name: "Spaghetti all'assassina", description: "Croccanti, intensi, scuri al punto giusto, con la firma della cottura in padella.", price: "14 EUR" },
-            { name: "Spaghetti allo scoglio", description: "Cremosita di mare, crostacei e luce salmastra nel piatto.", price: "18 EUR" }
-          ]
+            { name: "Orecchiette e cime di rapa", description: "Amaro gentile, acciuga e gesto pugliese riconoscibile.", price: "15 EUR" },
+            { name: "Orecchiette e cime di rapa con stracciatella", description: "Amaro gentile, acciuga e morbida stracciatella.", price: "17 EUR" },
+            { name: "Orecchiette con brasciola", description: "Pasta fatta in casa.", price: "18 EUR" },
+            { name: "Orecchiette al ragù", description: "Pasta fatta in casa.", price: "12 EUR" },
+            { name: "Spaghetti all'Assassina", description: "Croccanti, intensi, scuri al punto giusto, con la firma della cottura in padella.", price: "15 EUR" },
+            { name: "Spaghetti alla Carbonara", description: "Pasta fatta in casa.", price: "15 EUR" },
+            { name: "Gnocchetti al pesto ", description: "Pasta fresca, pesto verde brillante.", price: "16 EUR" } ,
+            { name: "Paccheri con crema di gamberi", description: "Pasta fresca, crema di gamberi.", price: "23 EUR" } ,
+            { name: "Cavatelli alla Ba'Vincenzo", description: "Gamberi e gorgonzola", price: "20 EUR" },
+            { name: "Tagliatella allo scampo", description: "Scampi", price: "25 EUR" } ,
+            { name: "Lasagne al forno", description: "Lasagna fatta in casa", price: "10 EUR" } ,
+            { name: "Sorpresa dello chef", description: "A sorpresa", price: "25 EUR" } 
+        ]
         },
         {
           title: "Secondi",
           subtitle: "Cotture pulite, materia in evidenza e una presenza piu elegante nel piatto.",
           items: [
-            { name: "Polpo alla griglia", description: "Esterno appena tostato, interno morbido e note mediterranee di brace.", price: "18 EUR" },
-            { name: "Pesce fresco del giorno", description: "Disponibilita variabile secondo mercato, lavorato con massima essenzialita.", price: "20 EUR" },
-            { name: "Scampi alla barese", description: "Dolcezza marina e finitura pulita per un secondo di carattere.", price: "22 EUR" }
+            { name: "Brasciola barese", description: "Brasciola tipica barese", price: "8 EUR" },
+            { name: "Cotoletta di pollo con patate", description: "Cotoletta di pollo con patate", price: "17 EUR" },
+            { name: "Straccetti di lonza", description: "Con cigliegino, rucola e scaglie di grana.", price: "20 EUR" },
+            { name: "Polpo fritto con patatine", description: "Polpo fresco", price: "23 EUR" },
+            { name: "Gamberi fritti", description: "Con rucola e pomodorini", price: "25 EUR" },
+            { name: "Frittura mista", description: "Calamari, paranza e gamberetti", price: "25 EUR" },
+             { name: "Tartare di tonno", description: "Con insalata di rucola e pomodorini", price: "22 EUR" }
           ]
         },
         {
-          title: "Dolci",
-          subtitle: "Chiusure morbide, leggere e rassicuranti, con un tocco piu raffinato.",
+          title: "Insalate",
+          subtitle: "Le nostre insalate sono un'esplosione di freschezza e sapore, pensate per chi cerca un pasto leggero ma gustoso. Ogni insalata è preparata con ingredienti di stagione, combinando verdure croccanti, proteine nutrienti e condimenti fatti in casa per creare un equilibrio perfetto tra gusto e salute.",
           items: [
-            { name: "Tiramisu della locanda", description: "Crema soffice, cacao delicato e un finale avvolgente.", price: "6 EUR" },
-            { name: "Panna cotta", description: "Morbida, fresca, minimale, servita con equilibrio.", price: "5 EUR" },
-            { name: "Dolce del giorno", description: "Una proposta variabile che segue stagione, ispirazione e disponibilita.", price: "6 EUR" }
+            { name: "Insalata caprese", description: "Insalata di pomodori, mozzarella e basilico", price: "15 EUR" },
+            { name: "Insalata di salmone", description: "Insalata di salmone affumicato con verdure di stagione", price: "15 EUR" },
+            { name: "Insalata Avocado", description: "Insalata di avocado con pomodori e limone", price: "15 EUR" }
           ]
         }
       ];

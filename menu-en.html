@@ -46,8 +46,10 @@
       <div class="container">
         <header class="section-head center reveal">
           <span class="eyebrow">Categories</span>
-          <h2>Starters, pasta, mains, and desserts in a cleaner, more elegant composition.</h2>
-          <p class="lead menu-section-intro">Warm titles, lighter descriptions, and prices that stay immediately legible. The layout gives each dish more space while staying fully aligned with the restaurant's new identity.</p>
+
+<h2>Starters, first courses, main courses...</h2>
+<p class="lead menu-section-intro">Our menu.</p>
+
         </header>
 
         <div class="menu-grid" id="menuGrid"></div>
@@ -58,11 +60,12 @@
       <div class="container reservation-grid">
         <div class="surface-panel reservation-panel reveal">
           <span class="eyebrow">Reservations</span>
-          <h2>When the menu feels right, booking should be immediate.</h2>
-          <p>The closing section stays clear and direct: just the essential details, strong calls to action, and the same elegant tone used across the site.</p>
+
+<h2>Step into the Locanda and let yourself be guided.</h2>
+<p>Every table is carefully prepared to offer you a moment to remember, whether it’s an intimate dinner, an evening with friends, or a special occasion.</p>
+
           <div class="reservation-notes">
             <div><strong>Phone:</strong> +39 329 325 7911</div>
-            <div><strong>Email:</strong> prenotazioni@lalocandadellelfo.it</div>
             <div><strong>Address:</strong> Strada dei Gesuiti, 28/30 - Bari</div>
           </div>
           <div class="cta-row">
@@ -83,8 +86,6 @@
       <p>&copy; <span id="year"></span> La Locanda dell'Elfo - Strada dei Gesuiti 28/30 - Bari</p>
       <ul class="social">
         <li><a href="https://instagram.com/lalocandadellelfo" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://facebook.com/lalocandadellelfo" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://tiktok.com/@lalocandadellelfo" target="_blank" rel="noopener">TikTok</a></li>
       </ul>
     </div>
   </footer>
@@ -94,39 +95,52 @@
     (function () {
       const menuData = [
         {
-          title: "Starters",
-          subtitle: "Small openings from land and sea, designed to set the tone with warmth and character.",
+          title: "Starters & specials",
+          subtitle: "Small beginnings from sea and land, designed to open the table with lightness and character.",
           items: [
-            { name: "House bruschette", description: "Warm bread, ripe tomato, extra virgin olive oil, and a fresh Mediterranean note.", price: "8 EUR" },
-            { name: "Sauteed mussels", description: "Briny aroma, rich cooking juices, and a more essential presentation.", price: "12 EUR" },
-            { name: "Artisanal meatballs", description: "Soft, golden, and comforting like a Sunday family lunch.", price: "10 EUR" }
+            { name: "Barese starter", description: "Warm bread, ripe tomato, extra virgin olive oil and a fresh Mediterranean touch.", price: "22 EUR" },
+            { name: "Bruschette + charcuterie board", description: "Bruschette paired with a board of local cured meats and cheeses.", price: "20 EUR" },
+            { name: "4 typical Bari appetizers", description: "Potatoes with mussels, orecchiette with brasciola, orecchiette with turnip greens, and spaghetti all'assassina.", price: "50 EUR" }
           ]
         },
         {
           title: "Pasta",
-          subtitle: "The most identity-driven part of the menu: fresh pasta, seafood, texture, and Bari memory.",
+          subtitle: "The most identity-driven part of the menu: fresh pasta, seafood, texture, and Bari tradition.",
           items: [
-            { name: "Orecchiette with turnip greens", description: "Gentle bitterness, anchovy, crisp breadcrumbs, and a classic Apulian gesture.", price: "12 EUR" },
-            { name: "Spaghetti all'assassina", description: "Toasted, intense, deeply flavored, and defined by its iconic pan finish.", price: "14 EUR" },
-            { name: "Seafood spaghetti", description: "Sea-scented creaminess, shellfish, and a bright Adriatic character.", price: "18 EUR" }
+            { name: "Orecchiette with turnip greens", description: "Gentle bitterness, anchovy, and a recognizably Apulian gesture.", price: "15 EUR" },
+            { name: "Orecchiette with turnip greens and stracciatella", description: "Gentle bitterness, anchovy, and soft stracciatella.", price: "17 EUR" },
+            { name: "Orecchiette with brasciola", description: "House-made pasta.", price: "18 EUR" },
+            { name: "Orecchiette with ragù", description: "House-made pasta.", price: "12 EUR" },
+            { name: "Spaghetti all'Assassina", description: "Crunchy, intense, dark at just the right point, with the signature pan finish.", price: "15 EUR" },
+            { name: "Spaghetti alla Carbonara", description: "House-made pasta.", price: "15 EUR" },
+            { name: "Gnocchetti with pesto", description: "Fresh pasta with bright green pesto.", price: "16 EUR" },
+            { name: "Paccheri with prawn cream", description: "Fresh pasta with a creamy prawn sauce.", price: "23 EUR" },
+            { name: "Cavatelli Ba'Vincenzo", description: "Shrimp and gorgonzola.", price: "20 EUR" },
+            { name: "Tagliatelle with scampi", description: "Scampi.", price: "25 EUR" },
+            { name: "Baked lasagna", description: "House-made lasagna.", price: "10 EUR" },
+            { name: "Chef's surprise", description: "A surprise selection.", price: "25 EUR" }
           ]
         },
         {
-          title: "Main courses",
-          subtitle: "Cleaner cooking, ingredients at the center, and a more elegant presence on the plate.",
+          title: "Mains",
+          subtitle: "Clean cooking, ingredients in the spotlight, and a more elegant presence on the plate.",
           items: [
-            { name: "Grilled octopus", description: "Lightly charred outside, tender inside, with Mediterranean notes from the grill.", price: "18 EUR" },
-            { name: "Fresh fish of the day", description: "Availability depends on the market, prepared with restraint and clarity.", price: "20 EUR" },
-            { name: "Bari-style scampi", description: "Sweet marine flavor and a cleaner finish for a dish with real presence.", price: "22 EUR" }
+            { name: "Bari-style brasciola", description: "Typical Barese brasciola.", price: "8 EUR" },
+            { name: "Chicken cutlet with potatoes", description: "Chicken cutlet served with potatoes.", price: "17 EUR" },
+            { name: "Pork loin strips", description: "With cherry tomatoes, arugula and Grana Padano shavings.", price: "20 EUR" },
+            { name: "Fried octopus with fries", description: "Fresh octopus.", price: "23 EUR" },
+            { name: "Fried prawns", description: "Served with arugula and cherry tomatoes.", price: "25 EUR" },
+            { name: "Mixed fry", description: "Squid, small fish and prawns.", price: "25 EUR" },
+            { name: "Tuna tartare", description: "With arugula and cherry tomato salad.", price: "22 EUR" }
           ]
         },
         {
-          title: "Desserts",
-          subtitle: "Soft, light, reassuring endings with a slightly more refined touch.",
+          title: "Salads",
+          subtitle: "Our salads are an explosion of freshness and flavor, designed for guests who want a light but delicious meal.",
           items: [
-            { name: "Locanda tiramisu", description: "Silky cream, delicate cocoa, and a deeply comforting finish.", price: "6 EUR" },
-            { name: "Panna cotta", description: "Soft, fresh, minimal, and served with balance.", price: "5 EUR" },
-            { name: "Dessert of the day", description: "A changing proposal shaped by season, inspiration, and daily availability.", price: "6 EUR" }
+            { name: "Caprese salad", description: "Tomatoes, mozzarella and basil.", price: "15 EUR" },
+            { name: "Salmon salad", description: "Smoked salmon salad with seasonal vegetables.", price: "15 EUR" },
+            { name: "Avocado salad", description: "Avocado with tomatoes and lemon.", price: "15 EUR" }
           ]
         }
       ];
