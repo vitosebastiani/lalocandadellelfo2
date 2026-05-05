@@ -1078,6 +1078,313 @@ p {
   margin-top: 1.5rem;
 }
 
+.review-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.review-actions-start {
+  justify-content: flex-start;
+}
+
+.google-profile-card,
+.tripadvisor-profile-card {
+  margin-top: 2rem;
+  padding: 1.35rem;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04)),
+    rgba(245, 232, 199, 0.04);
+  border: 1px solid rgba(245, 232, 199, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.google-profile-head,
+.tripadvisor-profile-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.google-mark,
+.tripadvisor-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06)),
+    rgba(245, 232, 199, 0.06);
+  border: 1px solid rgba(245, 232, 199, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  flex: 0 0 auto;
+}
+
+.tripadvisor-mark {
+  background:
+    linear-gradient(180deg, rgba(52, 224, 161, 0.22), rgba(52, 224, 161, 0.08)),
+    rgba(245, 232, 199, 0.06);
+  border-color: rgba(52, 224, 161, 0.26);
+}
+
+.google-mark svg,
+.tripadvisor-mark svg {
+  display: block;
+}
+
+.google-profile-head h3,
+.tripadvisor-profile-head h3 {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  color: var(--accent-soft);
+}
+
+.google-profile-copy,
+.tripadvisor-profile-copy {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  max-width: 44rem;
+}
+
+.google-profile-meta,
+.tripadvisor-profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.review-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04)),
+    rgba(245, 232, 199, 0.05);
+  border: 1px solid rgba(245, 232, 199, 0.1);
+}
+
+.tripadvisor-widget-shell {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+    rgba(8, 21, 15, 0.18);
+  border: 1px solid rgba(245, 232, 199, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+}
+
+.tripadvisor-widget-shell .TA_selfserveprop {
+  min-width: 0;
+}
+
+.tripadvisor-widget-shell .TA_links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tripadvisor-widget-shell #CDSWIDSSP {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0;
+}
+
+.tripadvisor-widget-shell .widSSPClickWrap,
+.tripadvisor-widget-shell .widSSPData.withBorder,
+.tripadvisor-widget-shell .widSSPReviews,
+.tripadvisor-widget-shell .widSSPOneReview {
+  width: 100% !important;
+}
+
+.tripadvisor-widget-shell .widSSPData,
+.tripadvisor-widget-shell .widSSPComponent,
+.tripadvisor-widget-shell .widSSPWrap,
+.tripadvisor-widget-shell .widSSPInformation,
+.tripadvisor-widget-shell .widSSPSummary,
+.tripadvisor-widget-shell .widSSPTrvlRtng,
+.tripadvisor-widget-shell .widSSPAll {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tripadvisor-widget-shell .widSSPData.withBorder {
+  padding: 1.2rem !important;
+  border-radius: calc(var(--radius-lg) - 4px) !important;
+  border: 1px solid rgba(245, 232, 199, 0.1) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)),
+    rgba(8, 21, 15, 0.42) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 20px 34px rgba(2, 11, 8, 0.16) !important;
+}
+
+@media (min-width: 920px) {
+  .tripadvisor-widget-shell .widSSPData.withBorder {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+    gap: 1rem 1.2rem !important;
+    align-items: start !important;
+  }
+
+  .tripadvisor-widget-shell .widSSPBranding {
+    grid-column: 1 / -1;
+  }
+
+  .tripadvisor-widget-shell .widSSPData.withBorder > .widSSPComponent:nth-child(2) {
+    grid-column: 1 / 2;
+  }
+
+  .tripadvisor-widget-shell .widSSPData.withBorder > .widSSPComponent:nth-child(3),
+  .tripadvisor-widget-shell .widSSPData.withBorder > .widSSPWrap:nth-child(4) {
+    grid-column: 2 / 3;
+    margin-top: 0 !important;
+  }
+
+  .tripadvisor-widget-shell .widSSPData.withBorder > .widSSPComponent:nth-child(5),
+  .tripadvisor-widget-shell .widSSPData.withBorder > .widSSPAll:nth-child(6) {
+    grid-column: 1 / -1;
+  }
+}
+
+.tripadvisor-widget-shell .widSSPBranding {
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.9rem !important;
+  border-bottom: 1px solid rgba(245, 232, 199, 0.1) !important;
+}
+
+.tripadvisor-widget-shell .widSSPBranding .logo {
+  max-width: 170px !important;
+}
+
+.tripadvisor-widget-shell .widSSPH18,
+.tripadvisor-widget-shell .widSSPH11,
+.tripadvisor-widget-shell .widSSPPopIdxData,
+.tripadvisor-widget-shell .widSSPOverall,
+.tripadvisor-widget-shell .widSSPQuote,
+.tripadvisor-widget-shell .widSSPData a,
+.tripadvisor-widget-shell .widSSPData span,
+.tripadvisor-widget-shell .widSSPData dt,
+.tripadvisor-widget-shell .widSSPData dd,
+.tripadvisor-widget-shell .widSSPData li {
+  color: var(--text) !important;
+}
+
+.tripadvisor-widget-shell .widSSPH18 {
+  font-family: "Fraunces", serif !important;
+  font-size: clamp(1.5rem, 3vw, 2.05rem) !important;
+  line-height: 1.05 !important;
+  color: var(--accent-soft) !important;
+}
+
+.tripadvisor-widget-shell .widSSPH11 {
+  margin-bottom: 0.55rem !important;
+  color: var(--accent-soft) !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+.tripadvisor-widget-shell .widSSPOverall {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  font-size: 1rem !important;
+}
+
+.tripadvisor-widget-shell .widSSPWrap.widSSPOptional,
+.tripadvisor-widget-shell .widSSPComponent.widSSPOptional {
+  margin-top: 1rem !important;
+}
+
+.tripadvisor-widget-shell .widSSPBullet {
+  display: grid !important;
+  gap: 0.85rem !important;
+  margin: 0.8rem 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.tripadvisor-widget-shell .widSSPBullet li {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  padding: 0.95rem 1rem !important;
+  border-radius: var(--radius-md) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+    rgba(245, 232, 199, 0.04) !important;
+  border: 1px solid rgba(245, 232, 199, 0.1) !important;
+}
+
+.tripadvisor-widget-shell .widSSPQuote {
+  display: block !important;
+  line-height: 1.7 !important;
+  color: var(--text-soft) !important;
+}
+
+.tripadvisor-widget-shell .widSSPBullet li > span:last-child {
+  display: inline-flex !important;
+  margin-top: 0.7rem !important;
+}
+
+.tripadvisor-widget-shell .widSSPAll {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.8rem !important;
+  margin-top: 1rem !important;
+}
+
+.tripadvisor-widget-shell .widSSPReadReview,
+.tripadvisor-widget-shell .widSSPWriteReview {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.tripadvisor-widget-shell .widSSPAll a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 2.9rem !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  color: var(--accent-soft) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
+    rgba(245, 232, 199, 0.05) !important;
+  border: 1px solid rgba(245, 232, 199, 0.12) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease !important;
+}
+
+.tripadvisor-widget-shell .widSSPAll a:hover,
+.tripadvisor-widget-shell .widSSPAll a:focus-visible,
+.tripadvisor-widget-shell .widSSPReviews a:hover,
+.tripadvisor-widget-shell .widSSPReviews a:focus-visible {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 14px 28px rgba(2, 11, 8, 0.16) !important;
+}
+
+.tripadvisor-widget-shell .widSSPReviews a {
+  color: var(--accent-soft) !important;
+  font-weight: 700 !important;
+}
+
 .ct-btn {
   width: 3rem;
   height: 3rem;
@@ -1497,6 +1804,11 @@ p {
 
   .story-visual::after {
     border-radius: var(--radius-xl);
+  }
+
+  .google-profile-head,
+  .tripadvisor-profile-head {
+    align-items: flex-start;
   }
 
   .signature-grid {
